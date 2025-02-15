@@ -11,11 +11,17 @@ import { siteConfig } from '@/config/site';
 export const baseOptions: BaseLayoutProps = {
   nav: {
     title: siteConfig.name,
+    transparentMode: 'top'
   },
   links: [
     {
       text: 'Docs',
       url: '/docs',
+      active: 'nested-url',
+    },
+    {
+      text: 'About',
+      url: '/about',
       active: 'nested-url',
     },
   ],
