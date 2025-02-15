@@ -1,4 +1,4 @@
-import { source } from '@/lib/source';
+import { source } from '../../../../lib/source';
 import {
   DocsPage,
   DocsBody,
@@ -9,10 +9,10 @@ import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 
 export default async function Page(props: {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ lang: string; slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = source.getPage(params.slug, params.lang);
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -40,7 +40,7 @@ export async function generateMetadata(props: {
   if (!page) notFound();
 
   return {
-    title: page.data.title,
+    title: `${page.data.title}`,
     description: page.data.description,
   };
 }
