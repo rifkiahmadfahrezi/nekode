@@ -5,7 +5,9 @@ import Footer from '@/components/ui/footer';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return <HomeLayout {...baseOptions}>
+    <main className="min-h-svh">
     {children}
+    </main>
     <Footer />
   </HomeLayout>;
 }
