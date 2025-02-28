@@ -4,6 +4,7 @@
    "pages": [
       "intro-to-react",
       "react-basic-concept",
-      "component-lifecycle"
+      "component-lifecycle",
+      "event-handling"
    ]
  }
