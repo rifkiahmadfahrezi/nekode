@@ -2,6 +2,7 @@
    "title": "Data structure & algorithm",
    "icon": "RiBubbleChartLine",
    "pages": [
-      "intro"
+      "intro",
+      "search-algorithm"
    ]
  }
