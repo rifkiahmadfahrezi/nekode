@@ -20,6 +20,11 @@ export const baseOptions: BaseLayoutProps = {
       active: 'nested-url',
     },
     {
+      text: 'Blog',
+      url: '/blog',
+      active: 'nested-url',
+    },
+    {
       text: 'About',
       url: '/about',
       active: 'nested-url',

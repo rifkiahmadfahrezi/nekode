@@ -3,6 +3,8 @@ import { loader } from 'fumadocs-core/source';
 import * as RemixIcons from "@remixicon/react";
 import { i18n } from "@/lib/i18n"
 import { createElement } from 'react';
+import { createMDXSource } from 'fumadocs-mdx';
+import { blogPosts } from '@/.source';
 
 export const source = loader({
   i18n,
@@ -19,4 +21,10 @@ export const source = loader({
       return createElement(RemixIcons[icon as keyof typeof RemixIcons]);
     }
   },
+});
+
+
+export const blog = loader({
+  baseUrl: '/blog',
+  source: createMDXSource(blogPosts),
 });
