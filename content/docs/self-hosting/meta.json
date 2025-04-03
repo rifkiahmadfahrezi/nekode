@@ -1,0 +1,9 @@
+{
+   "title": "Self hosting",
+   "icon": "RiServerLine",
+   "pages": [
+      "index",
+      "buy-vps",
+      "init-config"
+   ]
+ }
