@@ -1,5 +1,6 @@
 'use client'
-import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
+import { ProgressProvider  as ProgressBar } from '@bprogress/next/app';
+import { progressBar } from '@/config/site';
 
 import React from 'react'
 
@@ -12,9 +13,9 @@ const ProgressbarProvider = ({
    <>
    {children}
       <ProgressBar
-         height="4px"
-         color="#47b7fc"
-         options={{ showSpinner: false }}
+         height={progressBar.height}
+         color={progressBar.color}
+         options={{ showSpinner: progressBar.spinner }}
          shallowRouting
       />
    </>

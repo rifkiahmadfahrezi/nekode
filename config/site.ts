@@ -14,4 +14,10 @@ export const languages = [
    },
  ]
 
+export const progressBar = {
+  color: '#47b7fc',
+  height: '3px',
+  spinner: false
+}
+
 export type Language = typeof languages[0]
