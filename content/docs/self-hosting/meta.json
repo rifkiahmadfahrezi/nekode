@@ -4,6 +4,8 @@
    "pages": [
       "index",
       "buy-vps",
-      "init-config"
+      "init-config",
+      "deploy-pm2",
+      "domain-ssl"
    ]
  }
