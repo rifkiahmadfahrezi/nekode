@@ -193,68 +193,66 @@ sudo apt-get install nodejs -y
 
 Cek apakah instalasi berhasil dengan menjalankan `node -v`  dan `npm -v` , jika ingin menggunakan PNPM kamu bisa memasangnya mengikuti [cara memasang pnpm ini](https://pnpm.io/installation#on-posix-systems)
 
-**Instalasi Bun**
+**Bun Installation**
 
-Selain Nodejs kamu juga bisa menggunakan Bun, berikut ini [cara menginstall Bun](https://bun.sh/docs/installation) , jika muncul error instalasi Bun perlu package unzip kamu bisa mengikuti [cara ini untuk memasang unzip di server](https://www.geeksforgeeks.org/how-to-install-zip-and-unzip-in-linux/)
+In addition to Nodejs, you can also use Bun, here's [how to install Bun](https://bun.sh/docs/installation), if an installation error appears Bun needs unzip package you can follow [this method to install unzip on the server](https://www.geeksforgeeks.org/how-to-install-zip-and-unzip-in-linux/)
 
-### Konfigurasi nginx
+### Nginx configuration
 
 1. install Nginx
-    
-    ```bash
-    sudo apt install nginx
-    ```
-    
-2. Buat file konfigurasi Nginx, lalu masukkan text berikut
-    
-     
-    
-    ```bash
-    sudo nano /etc/nginx/sites-available/nextjs.conf
-    ```
-    
-    ```
-    server {
-     listen 80;
-     server_name your_server_ip;
-    
-     location / {
-      proxy_pass http://localhost:3000;
-      proxy_http_version 1.1;
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection 'upgrade';
-      proxy_set_header Host $host;
-      proxy_cache_bypass $http_upgrade;
-      
-      # Disable buffering to allow streaming responses
-      proxy_buffering off;
-      proxy_set_header X-Accel-Buffering no;
-     }
-    }
-    ```
-    
-    Jika sudah untuk menyimpan perubahan klik `ctrl + x` lalu `y` untuk menyimpan perubahan
-    
-3. Aktifkan file konfigurasi Nginx yg baru kita buat
-    
-    ```bash
-    sudo ln -s /etc/nginx/sites-available/nextjs.conf /etc/nginx/sites-enabled/
-    ```
-    
-4. Hapus konfigurasi default supaya tidak terjadi konflik
-    
-    ```bash
-    sudo rm /etc/nginx/sites-enabled/default
-    ```
-    
-    Untuk mengecek apakah file config sudah benar kamu bisa menjalankan perintah ini
-    
-    ```bash
-    sudo nginx -t
-    ```
-    
+
+```bash
+sudo apt install nginx
+```
+
+2. Create an Nginx configuration file, then enter the following text
+
+```bash
+sudo nano /etc/nginx/sites-available/nextjs.conf
+```
+
+```
+server {
+listen 80;
+server_name your_server_ip;
+
+location / {
+proxy_pass http://localhost:3000;
+proxy_http_version 1.1;
+ proxy_set_header Upgrade $http_upgrade;
+ proxy_set_header Connection 'upgrade';
+ proxy_set_header Host $host;
+ proxy_cache_bypass $http_upgrade;
+
+ # Disable buffering to allow streaming responses
+ proxy_buffering off;
+ proxy_set_header X-Accel-Buffering no;
+ }
+}
+```
+
+If you have to save the changes, click `ctrl + x` then `y` to save the changes
+
+3. Activate the Nginx configuration file that we just created
+
+```bash
+sudo ln -s /etc/nginx/sites-available/nextjs.conf /etc/nginx/sites-enabled/
+```
+
+4. Delete the default configuration so that there is no conflict
+
+```bash
+sudo rm /etc/nginx/sites-enabled/default
+```
+
+To check whether the config file is correct, you can run this command
+
+```bash
+sudo nginx -t
+```
+
 5. Restart Nginx
-    
-    ```bash
-    sudo service nginx restart
-    ```
+
+```bash
+sudo service nginx restart
+```
