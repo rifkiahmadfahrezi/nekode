@@ -1,5 +1,5 @@
 ---
-title: Konfigurasi (SSH, FW, Node)
+title: Konfigurasi (SSH, FW, Node, Nginx)
 description: Basic initial configuration for your VPS
 ---
 
@@ -177,7 +177,68 @@ Firewall berguna untuk mengamankan server kita dari serangan yang tidak diingink
     ```bash
     sudo reboot
     ```
+
+### Konfigurasi Nginx
+
+1. install Nginx
     
+    ```bash
+    sudo apt install nginx
+    ```
+    
+2. Buat file konfigurasi Nginx, lalu masukkan text berikut
+    
+     
+    
+    ```bash
+    sudo nano /etc/nginx/sites-available/nextjs.conf
+    ```
+    
+    ```
+    server {
+     listen 80;
+     server_name your_server_ip;
+    
+     location / {
+      proxy_pass http://localhost:3000;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+      
+      # Disable buffering to allow streaming responses
+      proxy_buffering off;
+      proxy_set_header X-Accel-Buffering no;
+     }
+    }
+    ```
+    
+    Ubah `your_server_ip` menjadi IP server kamu, jika sudah untuk menyimpan perubahan klik `ctrl + x` lalu `y` untuk menyimpan perubahan
+    
+3. Aktifkan file konfigurasi Nginx yg baru kita buat
+    
+    ```bash
+    sudo ln -s /etc/nginx/sites-available/nextjs.conf /etc/nginx/sites-enabled/
+    ```
+    
+4. Hapus konfigurasi default supaya tidak terjadi konflik
+    
+    ```bash
+    sudo rm /etc/nginx/sites-enabled/default
+    ```
+
+    Untuk mengecek apakah file config sudah benar kamu bisa menjalankan perintah ini
+    
+    ```bash
+    sudo nginx -t
+    ```
+    
+5. Restart Nginx
+
+```bash
+sudo service nginx restart
+```
 
 ### Konfigurasi package yg dibutuhkan (Nodejs atau Bun)
 
@@ -197,62 +258,3 @@ Cek apakah instalasi berhasil dengan menjalankan `node -v`  dan `npm -v` , jika 
 
 In addition to Nodejs, you can also use Bun, here's [how to install Bun](https://bun.sh/docs/installation), if an installation error appears Bun needs unzip package you can follow [this method to install unzip on the server](https://www.geeksforgeeks.org/how-to-install-zip-and-unzip-in-linux/)
 
-### Nginx configuration
-
-1. install Nginx
-
-```bash
-sudo apt install nginx
-```
-
-2. Create an Nginx configuration file, then enter the following text
-
-```bash
-sudo nano /etc/nginx/sites-available/nextjs.conf
-```
-
-```
-server {
-listen 80;
-server_name your_server_ip;
-
-location / {
-proxy_pass http://localhost:3000;
-proxy_http_version 1.1;
- proxy_set_header Upgrade $http_upgrade;
- proxy_set_header Connection 'upgrade';
- proxy_set_header Host $host;
- proxy_cache_bypass $http_upgrade;
-
- # Disable buffering to allow streaming responses
- proxy_buffering off;
- proxy_set_header X-Accel-Buffering no;
- }
-}
-```
-
-If you have to save the changes, click `ctrl + x` then `y` to save the changes
-
-3. Activate the Nginx configuration file that we just created
-
-```bash
-sudo ln -s /etc/nginx/sites-available/nextjs.conf /etc/nginx/sites-enabled/
-```
-
-4. Delete the default configuration so that there is no conflict
-
-```bash
-sudo rm /etc/nginx/sites-enabled/default
-```
-
-To check whether the config file is correct, you can run this command
-
-```bash
-sudo nginx -t
-```
-
-5. Restart Nginx
-
-```bash
-sudo service nginx restart
-```
