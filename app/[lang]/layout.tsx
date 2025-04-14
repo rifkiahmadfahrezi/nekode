@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
-import ProgressbarProvider from '@/components/providers/progressbar-procider';
+import ProgressbarProvider from '@/components/providers/progressbar-provider';
 
 import { siteConfig } from '../../config/site';
 import { I18nProvider, type Translations } from "fumadocs-ui/i18n";
