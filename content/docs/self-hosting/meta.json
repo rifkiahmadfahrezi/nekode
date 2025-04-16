@@ -6,6 +6,7 @@
       "buy-vps",
       "init-config",
       "deploy-pm2",
-      "domain-ssl"
+      "domain-ssl",
+      "gh-action"
    ]
  }

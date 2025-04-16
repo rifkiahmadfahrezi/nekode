@@ -1,0 +1,88 @@
+---
+title: Github action
+descripton: Github action adalah sebuah platform yang digunakan untuk melakukan automatisasi pada alur kerja pembuatan sebuah aplikasi, seperti testing dan deployment otomatis (CI/CD)
+---
+
+### Membuat runner
+
+runner secara sederhana adalah tugas-tugas yang dibuat oleh developer (dalam bentuk script) untuk dijalankan oleh github action secara otomatis, untuk membuatnya bisa mengikuti step-by-step berikut ini:
+
+1. Buka repository yang mau dipasang Github action
+2. Klik `setting` lalu klik dropdown  `actions` pada menu sebelah kiri lalu klik `Runners`
+3. Klik tombol `New self-hosted runner` 
+4. Pilih runner image (sesuaikan dengan server), kita pilih Linux.
+5. Lalu ikuti command yang ada dibawahnya satu per satu di server kita
+    
+    ![image.png](/gh-action1.png)
+    
+    Jika ada pertanyaan untuk memberi nama runner dan lainnya, klik `enter`  saja supaya nama defaultnya yg digunakan
+    
+6. Jika command terakhir yaitu `./run.sh` sudah berhasil dijalankan, kembali ke repo lalu klik `settings` lalu `Runners` dan `actions` maka akan muncul server kamu pada list yang ditampilkan
+    
+    ![image.png](/gh-action2.png)
+    
+    Jika di server kita klik `ctrl + c`  maka command `run.sh`  akan diberhentikan dan kita bisa cek lagi runner nya dengan me refresh halaman, makan bisa dilihat status server kita menjadi offline
+    
+7. Jalankan command di bawah, lalu cek statusnya dengan command  dibawah install
+    
+    ```bash
+    sudo ./svc.sh install
+    
+    sudo ./svc.sh status
+    ```
+    
+    maka bisa dilihat status dari runner kita yang belum diaktifkan, untuk mengaktifkannya dengan command berikut
+    
+    ```bash
+    sudo ./svh.sh start
+    ```
+    
+    Jika ingin di stop maka bisa dengan command `sudo ./svh.sh stop` (hanya jika perlu), jika command start sudah dijalankan seharusnya status pada server kita kembali `idle` 
+    
+8. lalu klik menu `actions`  yang ada diatas, kamu bisa mencari template script runner sesuai teknologi pada aplikasi yang kamu gunakan. Jika menggunakan Next.js kamu bisa klik  `set up workflow yourself` , lalu paste script ini kamu bisa menyesuaikan sesuai runtime yg digunakan (nodejs atau bun dan sebagainya), lalu klik button `commit changes`. Script ini menjalankan command `install` dengan Bun dan juga menjalankan `pm2` untuk deploy yg di trigger jika kita melakukan push ke repository tersebut.
+    
+    ```bash
+    name: Deploy to prod
+    
+    on:
+      push:
+        branches: [ "main" ]
+    
+    jobs:
+      build:
+        runs-on: self-hosted
+    
+        steps:
+          - uses: actions/checkout@v4
+          - uses: oven-sh/setup-bun@v2
+            with:
+              bun-version: 1.2.0
+          - run: bun install
+          - run: bun run build
+    
+          - run: pm2 stop nekode || true
+    
+          # Hapus aplikasi lama
+          - run: pm2 delete nekode || true
+    
+          # Jalankan aplikasi baru
+          - run: pm2 start bun --name "nekode" -- run start
+    
+          # Pastikan PM2 menyimpan status agar auto-restart setelah reboot VPS
+          - run: pm2 save
+    ```
+    
+    Jika di klik menus `actions`  lagi maka kamu bisa melihat script runner yg kita buat akan otomatis dijalankan (abaikan jika masih error karena kita belum setting repo di folder action-runner).
+    
+    Note: Jika perlu setting variabel environment maka kamu bisa setting itu di bagian `settings`  → `Secret and variables` → `Actions` 
+    
+9. Arahkan server ke folder `_work` , dengan menjalankan command ini 
+    
+    ```bash
+    cd ~/actions-runner/_work
+    ```
+    
+    lalu coba jalankan `ls -1` apakah repository yg kita tambah ke github action sudah ada, jika sudah ada maka jalankan `cd nama_repo/nama_repo` , jika sudah coba jalankan lagi `ls -1` jika sudah ada file `package.json` atau yg berkaitan dengan repo kamu, maka kamu sudah berada di folder yg seharusnya dan seharusnya script action yg sebelumnya sudah berjalan dengan baik. dan kamu bisa menjalankan `pm2 startup` supaya PM2 dapat berjalan saat server atau sistem reboot.
+    
+
+Dan itulah cara setup github action di server VPS pada aplikasi Next.js, jika belum menambahkan domain pada IP server kita kamu bisa mengikuti [cara ini untuk memasang domain dan SSL](/docs/self-hosting/domain-ssl). Lalu coba lakukan perubahan kepada project kita lalu push ke repository nya, lalu lihat apakah proses CI/CD nya akan jalan.
