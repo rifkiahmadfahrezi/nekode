@@ -10,19 +10,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      # Cache Bun dependencies and Next.js build cache
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lockb') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lockb') }}-
+
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.2.0
+
       - run: bun install
       - run: bun run build
 
       - run: pm2 stop nekode || true
-
-      # Hapus aplikasi lama
       - run: pm2 delete nekode || true
-
-      # Jalankan aplikasi baru
       - run: pm2 start bun --name "nekode" -- run start
-
-      # Pastikan PM2 menyimpan status agar auto-restart setelah reboot VPS
       - run: pm2 save
