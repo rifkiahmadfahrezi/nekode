@@ -1,33 +1,33 @@
 ---
-repo: rifkiahmadfahrezi/nekode
-media_path: /content
-website_url: https://www.nekode.my.id
 collections:
-  - name: docs
+  - file_extension: .mdx
+    filename_pattern: title
     git_path: /content/docs
-    filename_pattern: title
-    file_extension: .mdx
     metadata_schema:
       - name: title
-        type: title
         required: true
+        type: title
       - name: description
-        type: singleline
         required: false
-  - name: blog
+        type: singleline
+    name: docs
+  - file_extension: .mdx
+    filename_pattern: title
     git_path: /content/blog
-    filename_pattern: title
-    file_extension: .md
     metadata_schema:
       - name: title
-        type: title
         required: true
+        type: title
       - name: description
+        required: false
         type: singleline
-        required: false
       - name: created
-        type: datetime
         required: false
+        type: datetime
+    name: blog
+media_path: /content
+repo: rifkiahmadfahrezi/nekode
+website_url: https://www.nekode.my.id
 ---
 # GitCMS Configuration File
 > [!WARNING]
