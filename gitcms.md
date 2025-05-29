@@ -18,9 +18,12 @@ collections:
       - name: title
         required: true
         type: title
-      - name: description
-        required: false
+      - name: author
+        required: true
         type: singleline
+      - name: date
+        type: datetime
+        required: false
     name: blog
 media_path: /content
 repo: rifkiahmadfahrezi/nekode
