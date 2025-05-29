@@ -1,0 +1,12 @@
+{
+   "title": "Self hosting",
+   "icon": "RiServerLine",
+   "pages": [
+      "index",
+      "buy-vps",
+      "init-config",
+      "deploy-pm2",
+      "domain-ssl",
+      "gh-action"
+   ]
+ }

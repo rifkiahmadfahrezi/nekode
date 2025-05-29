@@ -1,0 +1,11 @@
+{
+   "title": "React",
+   "icon": "RiReactjsLine",
+   "pages": [
+      "intro-to-react",
+      "react-basic-concept",
+      "component-lifecycle",
+      "event-handling",
+      "hook-intro"
+   ]
+ }

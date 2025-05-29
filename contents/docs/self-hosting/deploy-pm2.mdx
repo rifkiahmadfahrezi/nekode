@@ -1,0 +1,54 @@
+---
+title: Deploy (Git & PM2)
+descripton: How to deploy Nextjs from Github with PM2
+---
+
+## Running applications with Git and PM2
+
+In our example we will try to clone a public repo for example, if you use a private repo you can use this method to [clone private repo to server](https://dev.to/koddr/quick-how-to-clone-your-private-repository-from-github-to-server-droplet-vds-etc-39jm)
+
+1. Create a new directory for our application then clone the repository we want to deploy
+
+```bash
+mkdir apps
+git clone git@github.com:rifkiahmadfahrezi/nyanboard.git
+# change to your repo url
+```
+
+2. Move to the application directory then run the application build command
+
+```bash
+cd apps/nyanboard
+pnpm install
+```
+
+If it has been installed you can run it by running the command `pnpm start` then try accessing the IP and port that you run for example `123.13.13.13:3000`. In this way you have successfully deployed your application and can be accessed via IP, but this method is less effective, so you can use PM2 to run and manage applications so that they run better.
+
+3. Install PM2
+
+```bash
+sudo npm install -g pm2
+```
+
+4. Run our Nextjs application using PM2
+
+```bash
+pm2 start pnpm --"application-name" -- start
+```
+
+Once running, you can monitor the application by running the `pm2 status` command, and the following are commands that are often used
+
+- Check status: `pm2 status`
+- Show logs: `pm2 logs` (Close with `Ctrl + C`)
+- Clear logs: `pm2 flush`
+- Restart app: `pm2 restart application_name`
+- Stop the application: `pm2 stop application_name`
+- Delete the application: `pm2 delete application_name`
+
+4. Run the startup command
+
+```bash
+pm2 startup
+```
+
+This command allows PM2 to run when the server or system reboots. In other words, this command ensures that processes managed by PM2 will continue running even if the server is turned off and on again.

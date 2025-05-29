@@ -1,0 +1,88 @@
+---
+title: Github action
+descripton: Github action is a platform used to automate the workflow of creating an application, such as automated testing and deployment (CI/CD)
+---
+
+### Creating a runner
+
+A runner is simply a task created by a developer (in the form of a script) to be run by github action automatically, to create it you can follow the following step-by-step:
+
+1. Open the repository where you want to install Github action
+2. Click `settings` then click the `actions` dropdown on the left menu then click `Runners`
+3. Click the `New self-hosted runner` button
+4. Select the runner image (adjust to the server), we choose Linux.
+
+5. Then follow the commands below one by one on our server
+
+![image.png](/gh-action1.png)
+
+If there is a question to name the runner and others, just click `enter` so that the default name is used
+
+6. If the last command `./run.sh` has been successfully executed, return to the repo then click `settings` then `Runners` and `actions` then your server will appear in the list displayed
+
+![image.png](/gh-action2.png)
+
+If on our server we click `ctrl + c` then the `run.sh` command will be stopped and we can check the runner again by refreshing the page, so we can see our server status becomes offline
+
+7. Run the command below, then check the status with the command below install
+
+```bash
+sudo ./svc.sh install
+
+sudo ./svc.sh status
+```
+
+then you can see the status of our runner that has not been activated, to activate it with the following command
+
+```bash
+sudo ./svh.sh start
+```
+
+If you want to stop it, you can use the command `sudo ./svh.sh stop` (only if necessary), if the start command has been run, the status on our server should return to `idle`
+
+8. then click the `actions` menu above, you can search for a script runner template according to the technology in the application you are using. If you are using Next.js you can click `set up workflow yourself`, then paste this script you can adjust it according to the runtime used (nodejs or bun and so on), then click the `commit changes` button. This script runs the `install` command with Bun and also runs `pm2` for the deploy which is triggered when we push to the repository.
+
+```bash
+name: Deploy to prod
+
+on:
+push:
+branches: [ "main" ]
+
+jobs:
+build:
+runs-on: self-hosted
+
+steps:
+- uses: actions/checkout@v4
+- uses: oven-sh/setup-bun@v2
+with:
+bun-version: 1.2.0
+- run: bun install
+- run: bun run build
+
+- run: pm2 stop nekode || true
+
+# Delete old application
+- run: pm2 delete nekode || true
+
+# Run the new application
+- run: pm2 start bun --name "nekode" -- run start
+
+# Make sure PM2 saves the status so that it auto-restarts after rebooting the VPS
+- run: pm2 save
+```
+
+If you click the `actions` menu again, you can see the runner script that we created will be automatically run (ignore if there is still an error because we have not set the repo in the action-runner folder).
+
+Note: If you need to set environment variables, you can set it in the `settings` → `Secret and variables` → `Actions` section
+
+9. Point the server to the `_work` folder, by running this command
+
+```bash
+cd ~/actions-runner/_work
+```
+
+then try running `ls -1` whether the repository we added to the github action already exists, if it does then run `cd nama_repo/nama_repo`, if it does try running `ls -1` again if there is a `package.json` file or one related to your repo, then you are in the right folder and the previous action script should have run properly. and you can run `pm2 startup` so that PM2 can run when the server or system reboots.
+
+And that's how to setup github action on VPS server on Next.js application, if you haven't added domain to our server IP you can follow [this method to install domain and SSL](/docs/self-hosting/domain-ssl). Then try to make changes to our project then push to its repository, then see if the CI/CD process will run.
