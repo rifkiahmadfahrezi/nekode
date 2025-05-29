@@ -1,0 +1,84 @@
+---
+title: Searching algorithm
+description: belajar dasar algritma binary & Sequential searching
+---
+
+## Binary search
+
+Binary search adalah sebuah algoritma yang mencari melalui array yang sudah tersusun. Binary search tidak mengulang atau mengecek semua item. Tapi akan membelah ruang pencarian menjadi setengah di setiap stepnya.
+
+
+### Implemetasi
+
+Sekarang kita akan mengimplementasikan algoritma binary search dengan membuat function dalam bahasa javascript, berikut ini adalah kodenya:
+
+``` js
+const binarySearch = (arr, target) => {
+    let low = 0
+    let high = arr.length - 1
+
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2)
+        
+        if (arr[mid] === target) {
+            return mid // Found the target, return index
+        } else if (arr[mid] < target) {
+            low = mid + 1 // Search in the right half
+        } else {
+            high = mid - 1 // Search in the left half
+        }
+    }
+    
+    return -1 // Target not found
+}
+```
+
+### Penjelasn
+1. Inisialisasi pointers
+   - `low` (array bagian awal)
+   - `high` (array bagian akhir)
+2. Loop sampai `low` melebihi `high`:
+   - Cari mid = Math.floor((`low` + `high`) / 2)
+   - Jika `arr[mid] === target`, return `mid`
+   - Jika `target` lebih besar dari `arr[mid]`, cari sisa bagian kanan (`low = mid + 1`)
+   - Jika `target` lebih kecil dari `arr[mid]`, cari sisa bagian kiri (`high = mid - 1`)
+3. Return `-1` jika tidak ditemukan.
+
+
+
+## Sequential search
+
+Sequential (atau linear) search adalah algoritma yang mengecek setiap elemen array satu persatu secara berurutan. Ini sangat berguna untuk pencarian pada data yang sudah di susun.
+
+### Implemetasi
+
+Sekarang kita akan mengimplementasikan algoritma sequential search dengan membuat function dalam bahasa javascript, berikut ini adalah kodenya:
+
+```js
+const array = [12, 43, 435, 56, 7867, 78]
+
+const sequentialSearch = (arr, target) => {
+    for (let i = 0 i < arr.length i++) {
+        if (arr[i] === target) {
+            return i // Return index if found
+        }
+    }
+    return -1 // Target not found
+}
+
+console.log(sequentialSearch(array, 56)) // => 3
+```
+
+### Penjelasn
+
+1. Buat function:
+   -Function sequentialSearch menerima dua parameters: array dan target value.
+2. Loop array:
+   - Ulang setiap elemen.
+   - Jika elemen sama dengan target, return indexnya.
+3. Return -1 jika target tidak ditemukan
+
+## Tambahan
+
+Binary search itu hanya bekerja pada array yang sudah disusun dan cepat untuk data berukuran besar. <br/>
+Sequential search bisa bekerja di array apapun, tapi lebih lambat untuk data besar

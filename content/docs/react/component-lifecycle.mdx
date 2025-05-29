@@ -1,0 +1,49 @@
+---
+title: React component lifecycle
+description: Learn about behavior of a component in React 
+---
+
+
+# Introduction
+
+Just think, a React component is like a human being, we’re born, evolve and eventually die. React component also follow a lifecycle which they are mounted (born), update (evolve), and unmount (die). This process known as **component lifecycle.**
+
+Like mentioned before, React component have three phase of lifecycle, which they are:
+
+1. Mounting (born): Where component created and add to its DOM.
+2. Updating (evolve): Where component changes in response to state changes.
+3. Unmounting (die or dying): Where React component are removed from the DOM.   
+
+![Frame asd.png](/Frame_asd.png)
+
+# Mounting phase
+
+Mounting phase is where the component created and and rendered to the DOM for the first time. The mounting phase will triggered when:
+
+1. React adds a component to the JSX tree and re-render the component’s parent to add the new component.
+2. When `root.render(<Component/>)` called
+
+on the mounting phase there will be three methods will be executed that is: `componentWillMount`, `render`, and `componentDidMount`.
+/
+![mounting.png](/mounting.png)
+
+The execution order of each methods starts from the top to bottom as in the picture above. In this case `componentWillMount` is a method that will be the first method executed, then execute the `render` method. On this `render` method is where our JSX file will be rendered to the DOM.
+
+## Updating phase
+
+On this phase we try to update a component by triggering it to re-render, this usually happens if there is a state changes inside a component
+
+![updating.png](/updating.png)
+
+This basically almost the same like before, but on this updating phase there is a`shouldComponentUpdate` method that will check if this component should be re-render or not. if its return true then the component will be re-render.
+
+# Unmounting phase
+
+This phase is where the component will be remove from the DOM. This phase will be triggered when:
+
+1. The component is no longer in JSX tree.
+2. React unmount the parent component.
+
+On this phase there is only one method that will be executed, which is `componentWillUnmount` method which will be called before the component removed from the DOM.
+
+![unmount.png](/unmount.png)
