@@ -21,9 +21,6 @@ collections:
       - name: description
         required: false
         type: singleline
-      - name: created
-        required: false
-        type: datetime
     name: blog
 media_path: /content
 repo: rifkiahmadfahrezi/nekode
