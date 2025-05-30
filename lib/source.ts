@@ -1,13 +1,11 @@
 import { docs } from '@/.source';
 import { loader } from 'fumadocs-core/source';
 import * as RemixIcons from "@remixicon/react";
-import { i18n } from "@/lib/i18n"
 import { createElement } from 'react';
 import { createMDXSource } from 'fumadocs-mdx';
 import { blogPosts } from '@/.source';
 
 export const source = loader({
-  i18n,
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
   icon(icon) {

@@ -1,15 +1,7 @@
 import Link from 'next/link';
 import { blog } from '@/lib/source';
  
-export default async function Home({
-  params
-}: {
-  params : Promise<{
-    lang: string
-  }>
-}) {
-  const lang = await params
-  console.log(lang)
+export default async function Home() {
   const posts = blog.getPages();
  
   return (
