@@ -1,6 +1,6 @@
 {
-  "commit": "",
-  "generated": "Fri, 30 May 2025 01:50:33 GMT",
+  "commit": "db9cd8383be584294d0e88777c84e7ca4c29d230",
+  "generated": "2025-05-30T03:12:55.071Z",
   "metadata": [
     {
       "__outstatic": {
@@ -139,6 +139,22 @@
       "description": "Learn some of react basic concepts like JSX, Component, State and others",
       "slug": "react-basic-conceptx",
       "title": "React basic concept"
+    },
+    {
+      "__outstatic": {
+        "commit": "db9cd8383be584294d0e88777c84e7ca4c29d230",
+        "hash": "4130769663",
+        "path": "content/blog/test-oustatic-cms.mdx"
+      },
+      "author": {
+        "name": "Rifki ahmad fahrezi",
+        "picture": "https://avatars.githubusercontent.com/u/56358927?v=4"
+      },
+      "collection": "blog",
+      "publishedAt": "2025-05-30T03:54:27.584Z",
+      "slug": "test-oustatic-cms",
+      "status": "draft",
+      "title": "Test oustatic cms"
     }
   ]
 }
