@@ -18,7 +18,13 @@ export const blogPosts = defineCollections({
   dir: 'content/blog',
   // add required frontmatter properties
   schema: frontmatterSchema.extend({
-    author: z.string(),
-    date: z.string().date().or(z.date()),
-  }),
+      title: z.string(),
+      slug: z.string(),
+      status: z.enum(["published", "draft"]),
+      author: z.object({
+        name: z.string(),
+        picture: z.string()
+      }),
+      publishedAt: z.string()
+    })
 });

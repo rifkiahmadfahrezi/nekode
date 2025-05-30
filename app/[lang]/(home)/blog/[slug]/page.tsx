@@ -28,12 +28,12 @@ export default async function Page(props: {
         <div className="flex flex-col gap-4 text-sm">
           <div>
             <p className="mb-1 text-fd-muted-foreground">Written by</p>
-            <p className="font-medium">{page.data.author}</p>
+            <p className="font-medium">{page.data.author.name}</p>
           </div>
           <div>
             <p className="mb-1 text-sm text-fd-muted-foreground">At</p>
             <p className="font-medium">
-              {new Date(page.data.date).toDateString()}
+              {new Date(page.data.publishedAt).toDateString()}
             </p>
           </div>
         </div>

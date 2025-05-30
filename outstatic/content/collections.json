@@ -1,0 +1,14 @@
+[
+  {
+    "title": "blog",
+    "slug": "blog",
+    "path": "content/blog",
+    "children": []
+  },
+  {
+    "title": "React",
+    "slug": "react",
+    "path": "content/docs/react",
+    "children": []
+  }
+]
