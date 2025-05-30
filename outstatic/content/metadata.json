@@ -1,6 +1,18 @@
 {
-  "commit": "8f96058a9dab4a8e4cdcc4ee276d043ea3bddf73",
-  "generated": "2025-05-30T00:58:30.275Z",
+  "commit": "",
+  "generated": "Fri, 30 May 2025 00:59:08 GMT",
   "metadata": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "259189241",
+        "path": "content/blog/hello.mdx"
+      },
+      "author": "Fuma Nama",
+      "collection": "blog",
+      "date": "2024-12-15T00:00:00.000Z",
+      "slug": "hellox",
+      "title": "Hello World"
+    }
   ]
 }
