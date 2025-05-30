@@ -3,6 +3,19 @@ import z from 'zod'
 
 export const docs = defineDocs({
   dir: 'content/docs',
+  docs: {
+    schema: frontmatterSchema.extend({
+      title: z.string(),
+      slug: z.string(),
+      description: z.string(),
+      status: z.enum(["published", "draft"]),
+      author: z.object({
+        name: z.string(),
+        picture: z.string()
+      }),
+      publishedAt: z.string()
+    })
+  }
 });
 
 export default defineConfig({
