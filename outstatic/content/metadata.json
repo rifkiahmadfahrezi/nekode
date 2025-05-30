@@ -1,6 +1,6 @@
 {
-  "commit": "645067f8d2746806ff6dd90750e6941e5d02ca4c",
-  "generated": "2025-05-30T01:00:45.038Z",
+  "commit": "",
+  "generated": "Fri, 30 May 2025 01:48:45 GMT",
   "metadata": [
     {
       "__outstatic": {
@@ -29,6 +29,116 @@
       "slug": "hello-2",
       "status": "published",
       "title": "Hello 2"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "2893675617",
+        "path": "content/docs/react/event-handling.mdx"
+      },
+      "collection": "react",
+      "description": "basic event handling in react",
+      "slug": "event-handlingx",
+      "title": "Event handling"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "3887551366",
+        "path": "content/docs/react/event-handling.id.mdx"
+      },
+      "collection": "react",
+      "description": "Cara sederhana melakukan event handing di React",
+      "slug": "event-handling.idx",
+      "title": "Event handling"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "3487718587",
+        "path": "content/docs/react/component-lifecycle.mdx"
+      },
+      "collection": "react",
+      "description": "Learn about behavior of a component in React",
+      "slug": "component-lifecyclex",
+      "title": "React component lifecycle"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "2709675920",
+        "path": "content/docs/react/component-lifecycle.id.mdx"
+      },
+      "collection": "react",
+      "description": "Belajar mengenai perilaku component di React",
+      "slug": "component-lifecycle.idx",
+      "title": "React component lifecycle"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1190433316",
+        "path": "content/docs/react/hook-intro.id.mdx"
+      },
+      "collection": "react",
+      "description": "Perkenalan dengan Hooks di React",
+      "slug": "hook-intro.idx",
+      "title": "Intro to React hooks"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "4059415793",
+        "path": "content/docs/react/intro-to-react.id.mdx"
+      },
+      "collection": "react",
+      "description": "Pelajari React dari pengenalan dasar, alasan mempelajarinya, hingga sejarah pembuatannya.",
+      "slug": "intro-to-react.idx",
+      "title": "Intro to React"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "2281528594",
+        "path": "content/docs/react/react-basic-concept.mdx"
+      },
+      "collection": "react",
+      "description": "Learn some of react basic concepts like JSX, Component, State and others",
+      "slug": "react-basic-conceptx",
+      "title": "React basic concept"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1938838481",
+        "path": "content/docs/react/intro-to-react.mdx"
+      },
+      "collection": "react",
+      "description": "Learn React from knowing what is React? why should I learn React? and How the story of React was created",
+      "slug": "intro-to-reactx",
+      "title": "Intro to React"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "3332940507",
+        "path": "content/docs/react/hook-intro.mdx"
+      },
+      "collection": "react",
+      "description": "An introduction to React hooks",
+      "slug": "hook-introx",
+      "title": "Intro to React hooks"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "2127550555",
+        "path": "content/docs/react/react-basic-concept.id.mdx"
+      },
+      "collection": "react",
+      "description": "Belajar beberapa konsep dasar pada React, seperti JSX, Komponen, State dan lainnya",
+      "slug": "react-basic-concept.idx",
+      "title": "Konsep Dasar React"
     }
   ]
 }
