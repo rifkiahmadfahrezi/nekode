@@ -1,0 +1,34 @@
+{
+  "commit": "645067f8d2746806ff6dd90750e6941e5d02ca4c",
+  "generated": "2025-05-30T01:00:45.038Z",
+  "metadata": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "259189241",
+        "path": "content/blog/hello.mdx"
+      },
+      "author": "Fuma Nama",
+      "collection": "blog",
+      "date": "2024-12-15T00:00:00.000Z",
+      "slug": "hellox",
+      "title": "Hello World"
+    },
+    {
+      "__outstatic": {
+        "commit": "645067f8d2746806ff6dd90750e6941e5d02ca4c",
+        "hash": "2839043810",
+        "path": "content/blog/hello-2.mdx"
+      },
+      "author": {
+        "name": "Rifki ahmad fahrezi",
+        "picture": "https://avatars.githubusercontent.com/u/56358927?v=4"
+      },
+      "collection": "blog",
+      "publishedAt": "2025-05-30T01:41:17.359Z",
+      "slug": "hello-2",
+      "status": "published",
+      "title": "Hello 2"
+    }
+  ]
+}
