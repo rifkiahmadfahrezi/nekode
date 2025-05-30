@@ -1,6 +1,6 @@
 {
-  "commit": "",
-  "generated": "Fri, 30 May 2025 01:00:29 GMT",
+  "commit": "645067f8d2746806ff6dd90750e6941e5d02ca4c",
+  "generated": "2025-05-30T01:00:45.038Z",
   "media": [
     {
       "__outstatic": {
@@ -33,6 +33,17 @@
       "alt": "",
       "filename": "flowchart.png",
       "publishedAt": "2025-05-30T01:00:29.204Z",
+      "type": "image"
+    },
+    {
+      "__outstatic": {
+        "commit": "645067f8d2746806ff6dd90750e6941e5d02ca4c",
+        "hash": "1764783955",
+        "path": "public/freepik__geometric-logo-of-a-black-cat-head-transparent-bac__44649-g2OT.png"
+      },
+      "alt": "",
+      "filename": "freepik__geometric-logo-of-a-black-cat-head-transparent-bac__44649-g2OT.png",
+      "publishedAt": "2025-05-30T01:00:45.032Z",
       "type": "image"
     },
     {
