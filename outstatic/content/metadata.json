@@ -1,0 +1,22 @@
+{
+  "commit": "",
+  "generated": "2025-05-30T00:57:38.362Z",
+  "metadata": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "3241215407",
+        "path": "content/blog/blog/try-outstatic.mdx"
+      },
+      "author": {
+        "name": "Rifki ahmad fahrezi",
+        "picture": "https://avatars.githubusercontent.com/u/56358927?v=4"
+      },
+      "collection": "blog",
+      "publishedAt": "2025-05-30T01:38:35.743Z",
+      "slug": "try-outstatic",
+      "status": "published",
+      "title": "Try outstatic"
+    }
+  ]
+}
