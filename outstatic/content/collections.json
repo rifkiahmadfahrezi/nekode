@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "title": "blog",
+    "slug": "blog",
+    "path": "content/blog",
+    "children": []
+  }
+]
