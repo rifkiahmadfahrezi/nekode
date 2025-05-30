@@ -1,6 +1,13 @@
 {
-  "title": "React",
-  "slug": "react",
+  "title": "react",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "description": {
+      "description": "Docs description",
+      "required": true,
+      "fieldType": "Text",
+      "dataType": "string",
+      "title": "Description"
+    }
+  }
 }
