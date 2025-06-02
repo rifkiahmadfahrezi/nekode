@@ -7,7 +7,9 @@ import { blogPosts } from '@/.source';
 
 export const source = loader({
   baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
+  source: createMDXSource(
+    docs.docs.filter(doc => doc.status === 'published')
+  ),
   icon(icon) {
     if (!icon) {
       // You may set a default icon
@@ -24,5 +26,7 @@ export const source = loader({
 
 export const blog = loader({
   baseUrl: '/blog',
-  source: createMDXSource(blogPosts),
+  source: createMDXSource(
+    blogPosts.filter(doc => doc.status === 'published')
+  ),
 });
