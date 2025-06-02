@@ -1,23 +1,7 @@
 {
-  "commit": "8602e93249cd2f0011336d25577c3ae3cdf7e34f",
-  "generated": "2025-05-30T03:13:35.502Z",
+  "commit": "e6a17b18cf5e95284fb59783440fd7040d7cac6f",
+  "generated": "2025-06-02T03:41:17.379Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "7296f6a465c8e4f5e55a74dd1c63bcbdad1dce34",
-        "hash": "2839043810",
-        "path": "content/blog/hello-2.mdx"
-      },
-      "author": {
-        "name": "Rifki ahmad fahrezi",
-        "picture": "https://avatars.githubusercontent.com/u/56358927?v=4"
-      },
-      "collection": "blog",
-      "publishedAt": "2025-05-30T01:41:17.359Z",
-      "slug": "hello-2",
-      "status": "published",
-      "title": "Hello 2"
-    },
     {
       "__outstatic": {
         "commit": "6f7eb574adc5299ea1e14b3c2b21ee4514b09030",
