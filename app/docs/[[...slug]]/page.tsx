@@ -1,4 +1,4 @@
-import { source } from '../../../../lib/source';
+import { source } from '../../../lib/source';
 import {
   DocsPage,
   DocsBody,
@@ -8,6 +8,7 @@ import {
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+import Image from 'next/image';
 
 export default async function Page(props: {
   params: Promise<{ lang: string; slug?: string[] }>;
@@ -17,7 +18,7 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDX = page.data.body;
-
+  console.log(page.data.author)
   return (
     <DocsPage 
       tableOfContent={{
@@ -26,6 +27,18 @@ export default async function Page(props: {
       toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
+      <figure className='flex items-center gap-2'>
+        <Image 
+          className=' object-cover rounded-full'
+          width={30}
+          height={30}
+          src={page.data.author.picture}
+          alt={page.data.author.name}
+          />
+          <p className='text-fd-muted-foreground'>
+            {page.data.author.name}
+          </p>
+      </figure>
       <DocsBody>
         <MDX components={{ 
           ...defaultMdxComponents,  

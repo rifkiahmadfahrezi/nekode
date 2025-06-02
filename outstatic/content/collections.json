@@ -10,5 +10,17 @@
     "slug": "react",
     "path": "content/docs/react",
     "children": []
+  },
+  {
+    "title": "Data Structure And Algorithm",
+    "slug": "data-structure-and-algorithm",
+    "path": "content/docs/data-structure-and-algorithm",
+    "children": []
+  },
+  {
+    "title": "Self Hosting",
+    "slug": "self-hosting",
+    "path": "content/docs/self-hosting",
+    "children": []
   }
 ]

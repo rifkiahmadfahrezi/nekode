@@ -1,15 +1,15 @@
 import { docs } from '@/.source';
 import { loader } from 'fumadocs-core/source';
 import * as RemixIcons from "@remixicon/react";
-import { i18n } from "@/lib/i18n"
 import { createElement } from 'react';
 import { createMDXSource } from 'fumadocs-mdx';
 import { blogPosts } from '@/.source';
 
 export const source = loader({
-  i18n,
   baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
+  source: createMDXSource(
+    docs.docs.filter(doc => doc.status === 'published')
+  ),
   icon(icon) {
     if (!icon) {
       // You may set a default icon
@@ -26,5 +26,7 @@ export const source = loader({
 
 export const blog = loader({
   baseUrl: '/blog',
-  source: createMDXSource(blogPosts),
+  source: createMDXSource(
+    blogPosts.filter(doc => doc.status === 'published')
+  ),
 });

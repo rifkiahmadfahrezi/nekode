@@ -12,7 +12,7 @@ export default function Home() {
         </div>
         
     </section>
-            <Script 
+    <Script 
           src="https://giscus.app/client.js"
           data-repo="rifkiahmadfahrezi/nekode"
           data-repo-id="R_kgDON58IIA"
