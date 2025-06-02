@@ -1,6 +1,6 @@
 {
-  "commit": "55898d8570e83b122e12f6a0c7ca303de9195316",
-  "generated": "2025-06-02T03:41:21.797Z",
+  "commit": "ca05be726c969b5f4a98aab7f746473f0aaefedd",
+  "generated": "2025-06-02T03:41:30.454Z",
   "metadata": [
     {
       "__outstatic": {
@@ -126,8 +126,8 @@
     },
     {
       "__outstatic": {
-        "commit": "8602e93249cd2f0011336d25577c3ae3cdf7e34f",
-        "hash": "1341903023",
+        "commit": "ca05be726c969b5f4a98aab7f746473f0aaefedd",
+        "hash": "4130769663",
         "path": "content/blog/test-oustatic-cms.mdx"
       },
       "author": {
@@ -137,7 +137,7 @@
       "collection": "blog",
       "publishedAt": "2025-05-30T03:54:27.584Z",
       "slug": "test-oustatic-cms",
-      "status": "published",
+      "status": "draft",
       "title": "Test oustatic cms"
     }
   ]
